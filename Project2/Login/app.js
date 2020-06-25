@@ -15,8 +15,6 @@ mongoose.connect(db,{useNewUrlParser:true, useUnifiedTopology: true } )
   .then(()=>console.log('Mongo DB Connected!'))
   .catch(err => console.log(err));
 //ejs
-
-
 app.set('view engine','ejs');
 app.use( express.static( "public" ) );
 
