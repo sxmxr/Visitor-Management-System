@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <title>Visitor Management System</title>
+  <link rel="stylesheet" href="visitor.css">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ahmedabad University</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bookvisit">Schedule Visit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#records">Records</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#extra">Extra</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="jumbotron jumbotron-fluid height100p banner" id="home">
+    <div class="container h100">
+      <div class="contentBox h100">
+      </div>
+    </div>
+  </div>
+  <section class="bookvisit" id="bookvisit">
+    <div class="container">
+      <h2>Schedule Visit</h2>
+      <div class="row100">
+        <div class="col">
+          <div class="inputbox">
+            <input type="text" name="name" id="name"  required="required">
+            <span class="text">Parent’s / Guardian’s Name</span>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="inputbox">
+            <input type="number" name="cn" id="cn" required="required">
+            <span class="text">Contact Number</span>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+        <div class="row100">
+        <div class="col">
+          <div class="inputbox">
+            <input type="text" name="sc" id="sc" required="required">
+            <span class="text">School City</span>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="inputbox">
+            <input type="text" name="ss" id="ss" required="required">
+            <span class="text">School State</span>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row100">
+        <div class="col">
+          <div class="inputbox">
+            <input type="number" name="nv" id="nv" required="required">
+            <span class="text">Number of Visitors</span>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+        <div class="row100">
+        <div class="col">
+          <div class="inputbox textarea">
+            <textarea id="msg"  required="required"></textarea>
+            <span class="text">Message</span>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row100">
+        <div class="col">
+          <input type="submit" value="Send">
+        </div>
+      </div>
+    </div>  
+  </section>
+  <section class="sec2" id="records">
+    <div class="container h100">
+      <div class="contentBox h100">
+        <br><br><br><br>
+        <h2>Records</h2>
+        <br><br>
+        <div class="container">
+          <table class="table table-dark table-boarderless table-hover" style="margin-top: 200px;">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="extra" id="extra">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="headerText text-center">
+            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Extra Information</h2>
+            <br>
+            <br>
+            <ul>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                <a href="https://ahduni.edu.in/meet-student-ambassadors" target="_blank">Our Student Ambassadors</a>
+              </li>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                <a href="https://ahduni.edu.in/student-resources#hostel" target="_blank">Student Housing</a> 
+              </li>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750">
+                <a href="https://ahduni.edu.in/campus-information" target="_blank">Campus Information</a>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="headerText text-center">
+            <br><br><br><br><br><br><br>
+            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Contact Us.</h2>
+            <br>
+            <br>
+            <ul>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
+                +91-79-61911200, 61911201
+              </li>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                +91-79-26440396
+              </li>
+              <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="750">
+                info@ahduni.edu.in
+              </li>
+            </ul>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000"><br>Office Hours:
+              Monday to Friday<br>
+              9:00 to 18:00 hours IST.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="sci">
+            <li>
+              <a href="https://www.facebook.com/AhmedabadUniversity/" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/AhdUniv" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://ahduni.edu.in/" target="_blank">
+                <i class="fa fa-google"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ahduniv/" target="_blank">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/user/AhdUniVideos" target="_blank">
+                <i class="fa fa-youtube" ></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/school/ahmedabaduniversity/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="cpryt">
+            © Copyright 2020 Ahmedabad University, All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).scroll(function () {
+      $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+    });
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

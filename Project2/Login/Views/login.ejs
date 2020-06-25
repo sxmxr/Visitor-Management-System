@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Form</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      font-family: 'open sans', sans-serif;
+      font-weight: 400;
+    }
+
+    ::-webkit-input-placeholder {
+      color: #7e7e7e;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color: #0e0e0e;
+    }
+
+    .container {
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      position: absolute;
+    }
+
+    section .container .logo {
+      position: relative;
+      margin-left: 69px;
+      top: 65px;
+    }
+
+    section .container .logo {
+      color: #ff0047;
+      font-size: 19px;
+    }
+
+
+    .text-area {
+      position: relative;
+      min-height: 2px;
+      top: 100px;
+      left: 65px;
+      width: 40%;
+      float: left;
+    }
+
+    .container .text-area {
+      margin: 0;
+    }
+
+    .container .text-area {
+      float: left;
+      height: auto;
+    }
+
+    .container .text-area h2 {
+      margin-bottom: 25px;
+      color: #FF9933;
+      font-weight: bold;
+      font-size: 36px;
+      letter-spacing: 0.03em;
+      line-height: 55px;
+      font-family: 'open sans', sans-serif;
+
+    }
+
+    .container .text-area p {
+      margin-bottom: 50px;
+      font-size: 18px;
+      line-height: 25px;
+      color: #8e8e8e;
+      font-family: 'open sans', sans-serif;
+    }
+
+
+    .container .text-btn {
+      position: absolute;
+      display: inline-block;
+      background: #FF9933;
+      color: #0e0e0e;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      border-radius: 12px;
+      padding: 25px 60px;
+      font-weight: 600;
+      font-family: 'open sans', sans-serif;
+      text-transform: uppercase;
+      transition: all 0.1s ease;
+      text-decoration: none;
+      box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.1),
+        2px 2px 2px #FF9933;
+
+    }
+
+    .text-btn:hover {
+      color: #FF9933;
+      background: #0e0e0e;
+      transition: 0.2s;
+      box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.05),
+        2px 2px 6px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .text-btn:before {
+      position: absolute;
+      content: "";
+      box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.05),
+        inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+
+      width: 261px;
+      height: 100px;
+      overflow: hidden;
+      top: -15px;
+      left: -10px;
+      border-radius: 10px;
+
+    }
+
+
+    .form {
+      position: relative;
+      top: 22px;
+      width: 376px;
+      background: #0e0e0e;
+      left: 23%;
+      border: 1px solid #0d0d0d;
+      box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+        5px 5px 10px rgba(0, 0, 0, 0.5);
+      float: left;
+      border-radius: 18px;
+    }
+
+    section .form {
+      margin: 0;
+    }
+
+    .container .form h3 {
+      margin-bottom: 13px;
+      color: #FF9933;
+      font-family: 'open sans', sans-serif;
+      font-size: 25px;
+      letter-spacing: 0.03em;
+      text-align: center;
+      line-height: 70px;
+    }
+
+    .container .form .social-box {
+      margin-left: 2px;
+
+    }
+
+    .container .form .social-box a {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 22px;
+      width: 58px;
+      height: 58px;
+      background: #0e0e0e;
+      box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.05),
+        2px 2px 6px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      line-height: 60px;
+      transition: all .4s;
+      border-radius: 18px;
+      margin: 0px 14px;
+      align-items: center;
+
+    }
+
+    .container .form .social-box a:hover {
+      transition: 0.2s;
+      box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.05),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .container .form .social-box a .fab {
+      text-align: center;
+      align-items: center;
+      color: #FF9933;
+
+    }
+
+    .container .form p {
+      align-items: center;
+      text-align: center;
+      margin-top: 24px;
+      margin-bottom: 35px;
+      font-family: sans-serif;
+      font-size: 17px;
+      line-height: 20px;
+      color: #616161;
+    }
+
+    .container .form .input .inputBox input {
+      width: 80%;
+      height: 55px;
+      text-align: center;
+      background: #0e0e0e;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      padding: 5px 15px;
+      font-size: 18px;
+      color: #FF9933;
+      box-shadow: inset -3px -3px 6px rgba(255, 255, 255, 0.05),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .container .form .input {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .container .form .input .inputBox {
+      margin-top: 20px;
+    }
+
+    .form .input .inputBox input[type="submit"] {
+      width: 55%;
+      margin-top: 10px;
+      background: #FF9933;
+      color: #0e0e0e;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      border-radius: 12px;
+      font-family: 'open sans', sans-serif;
+      font-weight: bold;
+      box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.05),
+        2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .form .input .inputBox input[type="submit"]:active {
+      color: #FF9933;
+      background: #0e0e0e;
+      margin-top: 10px;
+    }
+
+    .container .form .logo {
+      margin-bottom: 30px;
+      color: #000000;
+      font-size: 18px;
+      font-family: sans-serif;
+
+    }
+
+    .login a {
+      text-decoration: none;
+      margin-left: 10px;
+      font-weight: 600;
+      font-family: 'open sans', sans-serif;
+      color: #ff0047;
+      font-size: 24px;
+    }
+
+
+    section .container .media-box {
+      display: block;
+      position: absolute;
+      top: 38rem;
+      left: 89px;
+
+    }
+
+    .container .media-box .left-box {
+      display: inline-block;
+      position: relative;
+      display: -webkit-inline-box;
+    }
+
+    .media-box .left-box .btn2 {
+      margin-left: 35px;
+    }
+
+    .media-box .left-box .btn2 i {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 20px;
+      width: 50px;
+      height: 50px;
+      background: #0e0e0e;
+      box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.05),
+        2px 2px 6px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      line-height: 50px;
+      transition: all 0.3s;
+      border-radius: 18px;
+      margin: 0px 14px;
+      top: -50px;
+      color: #FF9933;
+      border: 1px solid #0d0d0d;
+    }
+
+    .media-box .left-box .btn2 i:hover {
+      background: #00ff73;
+      color: #0e0e0e;
+      border: none;
+    }
+
+    .media-box .left-box .btn2 span {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 16px;
+      color: rgba(179, 179, 179, 0.18);
+      margin-top: -87px;
+    }
+
+
+
+
+    /*********RESPNSIVE-------*********/
+
+    @media screen and (max-width:1140px) {
+      .text-area {
+        width: 80%;
+        left: 30px;
+      }
+
+      .container .text-area {
+        padding: 20px 40px;
+      }
+
+      .container .text-btn:before {
+        display: none;
+      }
+
+      .form {
+        left: 298px;
+        top: 200px
+      }
+
+      section .container .media-box {
+        top: 74rem;
+        left: 240px;
+      }
+
+
+
+
+    }
+
+    @media screen and (max-width:768px) {
+      .text-area {
+        width: 80%;
+        left: 30px;
+      }
+
+      .container .text-area {
+        padding: 20px 40px;
+      }
+
+      .container .text-btn:before {
+        display: none;
+      }
+
+      .form {
+        left: 188px;
+        top: 200px
+      }
+
+      section .container .media-box {
+        top: 74rem;
+        left: 160px;
+      }
+
+
+
+
+    }
+
+
+    @media screen and (max-width:599px) {
+      .text-area {
+        width: 80%;
+        left: 39px;
+      }
+
+      .container .text-area {
+        padding: 20px 40px;
+      }
+
+      .container .text-btn:before {
+        display: none;
+      }
+
+      .form {
+        left: 39px;
+        top: 200px
+      }
+
+      section .container .media-box {
+        top: 74rem;
+        left: -36px;
+      }
+
+
+
+
+    }
+
+    @media screen and (max-width:414px) {
+
+      .container .text-area h2 {
+        font-size: 26px;
+        line-height: 35px;
+
+      }
+
+
+      .text-area {
+        width: 80%;
+        left: 30px;
+      }
+
+      .container .text-area {
+        padding: 20px 40px;
+      }
+
+      .container .text-area p {
+        font-size: 15px;
+      }
+
+      .container .text-btn:before {
+        display: none;
+      }
+
+      .form {
+        left: 188px;
+        top: 200px
+      }
+
+      .container .media-box {
+        left: 50px;
+      }
+
+      section .container .media-box {
+        top: 73rem;
+        left: -36px;
+      }
+
+      .media-box .left-box .btn2 span {
+        font-size: 14px;
+      }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    @media screen and (max-width:375px) {
+      .text-area {
+        width: 80%;
+        left: 39px;
+      }
+
+      .container .text-area {
+        padding: 20px 40px;
+      }
+
+      .container .text-btn:before {
+        display: none;
+      }
+
+      .form {
+        left: 7px;
+        top: 200px
+      }
+
+      section .container .media-box {
+        top: 74rem;
+        left: 2px;
+      }
+
+
+
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <section>
+
+    <div class="container">
+      <div class="logo">
+        <h2>Ahmedabad University</h2>
+      </div>
+
+
+      <div class="text-area">
+        <h2>Founders</h2>
+
+        <p>Ahmedabad University was founded by Ahmedabad Education Society (AES). AES is a non-profit educational trust
+          located in Ahmedabad. More than 80 years old, AES was established at the behest of Sardar Vallabhbhai Patel,
+          the first Home Minister of India, by illustrious leaders such as Kasturbhai Lalbhai, the doyen of the Indian
+          textile industry; Ganesh Mavalankar, the first Speaker of the Indian Parliament; and Amrutlal Hargovandas, one
+          of the prominent industrialists of Ahmedabad. AES envisioned that the university would serve to advance
+          education in the state of Gujarat, throughout India and the world. AES and its leaders have played significant
+          roles in the founding of national institutions such as Indian Institute of Management Ahmedabad, National
+          Institute of Design, Physical Research Laboratory, and Centre for Environmental Planning and Technology or
+          (CEPT). The Trust is also responsible for supporting reputed institutions such as MG College of Science, LD
+          College of Arts, HL College of Commerce, LM College of Pharmacy, AG Teacher’s College and LD Institute of
+          Indology, amongst others.</p>
+
+        <a href="https://ahduni.edu.in/" target="_blank" class="text-btn">Know More</a>
+      </div>
+
+<form action="/users/login" method="POST">
+  <div class="form" >
+    <h3>L O G - I N</h3>
+    <div class="input">
+      <div class="inputBox">
+        <input type="text" name="email" id="email" placeholder="Email">
+      </div>
+
+      <div class="inputBox">
+        <input type="password" name="password" id="password" placeholder="Password">
+      </div>
+
+      <div class="inputBox">
+        <input type="submit" name="Sign-in" value="Sign-in">
+      </div>
+    </div>
+    <p class="login">Don't Have an account?<a href="/users/register">SIGN-UP</a></p>
+
+  </div>
+
+</form>
+      
+
+
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>
