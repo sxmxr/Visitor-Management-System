@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <title>Visitor Management System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none !important;
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      position: relative;
+      z-index: 1000000;
+    }
+
+    p {
+      font-size: 1.15rem;
+    }
+
+    .navbar {
+      background: transparent !important;
+      transition: 0.5s;
+    }
+
+    .navbar.scrolled {
+      background: #000 !important;
+      transition: 0.5s;
+    }
+
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .show>.nav-link {
+      color: #000;
+      background: white;
+    }
+
+    .navbar-light .navbar-nav .active>.nav-link:hover {
+      color: black;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link:focus {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-brand:hover,
+    .navbar-light .navbar-brand:focus,
+    .navbar-light .navbar-brand:visited {
+      color: rgba(255, 255, 255, 1);
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .banner {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: url(./Login/public/images/brown-book-page-1112048.jpg);
+      background-size: cover;
+      margin-bottom: 0;
+      background-position: center;
+    }
+
+    .banner::before,
+    .sec2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      left: 0;
+      height: 400px;
+      background: linear-gradient(#000, transparent);
+      pointer-events: none;
+    }
+
+    .banner::after,
+    .sec2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: 400px;
+      background: linear-gradient(360deg, #000, transparent);
+      pointer-events: none;
+    }
+
+    .height100p {
+      height: 100vh;
+    }
+
+    .h100p {
+      height: 100%;
+    }
+
+    .sec1 {
+      padding: 100px 0;
+      background: #000;
+    }
+
+    .headerText {
+      color: #fff;
+
+    }
+
+    .headerText h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .headerText p {
+      text-align: left;
+    }
+
+    .placeBox {
+      position: relative;
+      max-width: 300px;
+      height: 400px;
+      margin: 0 auto;
+      background: #000;
+      margin-top: 30px;
+    }
+
+    .placeBox .imgBx {
+      width: 100%;
+      height: 100%;
+    }
+
+    .placeBox .imgBx img {
+      object-position: center;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sec2 {
+      position: relative;
+      background: #000;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    .sec2 h2 {
+      font-weight: 800;
+      position: absolute;
+      top: 19%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff !important;
+      text-transform: uppercase;
+      font-size: 4.5rem;
+    }
+
+    .sec2 p {
+      font-weight: 800;
+      font-size: 2.0rem;
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(253, 253, 253);
+    }
+
+    .summary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #101010;
+      padding: 100px 0;
+      ;
+    }
+
+    .summary .container {
+      position: relative;
+      width: 900px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .summary .container .card {
+      position: relative;
+      width: 250px;
+      background: linear-gradient(0deg, #1b1b1b, #222, #1b1b1b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      border-radius: 4px;
+      text-align: center;
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    .summary .container .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, .5);
+    }
+
+    .summary .container .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .percent {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 50px #000;
+      background: #222;
+      z-index: 1000;
+    }
+
+    .percent .number {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .percent .number h2 {
+      color: #777;
+      font-weight: 700;
+      font-size: 40px;
+      transition: 0.5s;
+    }
+
+    .card:hover .percent .number h2 {
+      color: #fff;
+      font-size: 50px;
+    }
+
+    .percent .number h2 span {
+      font-size: 24px;
+    }
+
+    .card:hover .percent .number h2 span {
+      color: #fff;
+    }
+
+    .percent .text {
+      position: relative;
+      color: #777;
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: 0.5s;
+    }
+
+    .card:hover .text {
+      color: #fff;
+    }
+
+    svg {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      z-index: 1000;
+    }
+
+    svg circle {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: #191919;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transform: translate(5px, 5px);
+
+    }
+
+    svg circle:nth-child(2) {
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+    }
+
+    .card:nth-child(1) svg circle:nth-child(2) {
+      stroke-dashoffset: calc(440 - (440 * 90) / 100);
+      stroke: #00ff43;
+    }
+
+    .card:nth-child(2) svg circle:nth-child(2) {
+      stroke-dashoffset: calc(440 - (440 * 80) / 100);
+      stroke: #00a1ff;
+    }
+
+    .card:nth-child(3) svg circle:nth-child(2) {
+      stroke-dashoffset: calc(440 - (440 * 60) / 100);
+      stroke: #ff04f7;
+    }
+
+    footer {
+      background-color: black;
+      padding: 50px 0 0;
+    }
+
+    .sci {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sci li {
+      list-style-type: none;
+      margin: 0 20px;
+      display: inline;
+    }
+
+    .sci li a {
+      color: #777;
+      font-size: 2em;
+      transition: 0.5s;
+    }
+
+    .sci li a:hover {
+      color: #fff;
+    }
+
+    .cpryt {
+      margin-top: 20px;
+      text-align: center;
+      color: #777;
+    }
+
+    .cpryt a,
+    .cpryt a:hover {
+      color: #fff;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .navbar-light .navbar-toggler {
+        background-color: #fff;
+        border-radius: 0;
+      }
+
+      .banner {
+        min-height: 100vh;
+        padding: 100px 0;
+      }
+
+      .container .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .sec2 h2 {
+        font-size: 2.5rem;
+      }
+
+      .sec2 p {
+        font-size: 1.5rem;
+      }
+
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+
+      .cpryt {
+        font-size: 0.7rem;
+      }
+
+      .sci li {
+        margin: 0 10px;
+      }
+
+      .contact ul {
+        text-align: left;
+      }
+
+      .summary .container {
+        align-items: center;
+        justify-content: center;
+        display: inline;
+      }
+
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ahmedabad University</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pendingRequests">Pending Requests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#records">Records</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#summary">Summary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="jumbotron jumbotron-fluid height100p banner" id="home">
+    <div class="container h100">
+      <div class="contentBox h100">
+      </div>
+    </div>
+  </div>
+  <section class="sec1" id="pendingRequests">
+    <div class="container">
+      <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+          <div class="headerText text-center">
+            <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Pending Requests</h2>
+            <br><br><br>
+            <div class="container">
+              <table class="table table-dark table-boarderless table-hover">
+                <thead>
+                  <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                  </tr>
+                  <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec2" id="records">
+    <div class="container h100">
+      <div class="contentBox h100">
+        <br><br><br><br>
+        <h2>Records</h2>
+        <br><br>
+        <div class="container">
+          <table class="table table-dark table-boarderless table-hover" style="margin-top: 200px;">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="summary" id="summary">
+    <div class="container">
+      <div class="card">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>
+                90<span>%</span>
+              </h2>
+            </div>
+          </div>
+          <h2 class="text">HTML</h2>
+        </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>
+                80<span>%</span>
+              </h2>
+            </div>
+          </div>
+          <h2 class="text">JavaScript</h2>
+        </div>
+      </div>
+      <div class="card">
+        <div class="box">
+          <div class="percent">
+            <svg>
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="number">
+              <h2>
+                60<span>%</span>
+              </h2>
+            </div>
+          </div>
+          <h2 class="text">CSS</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="sci">
+            <li>
+              <a href="https://www.facebook.com/AhmedabadUniversity/" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/AhdUniv" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://ahduni.edu.in/" target="_blank">
+                <i class="fa fa-google"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ahduniv/" target="_blank">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/user/AhdUniVideos" target="_blank">
+                <i class="fa fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/school/ahmedabaduniversity/" target="_blank">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+          <p class="cpryt">
+            © Copyright 2020 Ahmedabad University, All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+
+    $(document).scroll(function () {
+      $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+    });
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
