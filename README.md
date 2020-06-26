@@ -22,5 +22,5 @@ Visitor management is the process of tracking everyone who enters in building or
 * After successfully setting this project to your local computer, write **npm run dev** and your project will start on 5000 Port in your local machine.
 * Type **http://localhost:5000/users/welcome** and get started with the project.
 
-# Screenshots of few webpages
-
+# Contact
+If you are having any quaries regarding this project then feel free to drop an email on **samarth.s@ahduni.edu.in** .
